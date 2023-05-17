@@ -18,6 +18,7 @@ export const AddNoteModal = ({
   isOpen,
   onClose,
   note,
+  setNote,
   onTitleChange,
   onBodyChange,
   onAddNote
@@ -83,7 +84,21 @@ export const AddNoteModal = ({
         >
           Save
         </Button>
-        <Button variant='ghost' onClick={onClose}>
+        <Button
+          variant='ghost'
+          onClick={() => {
+            onClose()
+            setNote({
+              title: {
+                content: note.title.content,
+                max: 50
+              },
+              body: {
+                content: note.body.content
+              }
+            })
+          }}
+        >
           Cancel
         </Button>
       </ModalFooter>

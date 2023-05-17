@@ -26,7 +26,7 @@ export const App = () => {
       setNote({
         title: {
           content: e.target.value,
-          max: note.title.max - note.title.content.length
+          max: 50 - e.target.value.length
         },
         body: {
           content: note.body.content
@@ -34,6 +34,7 @@ export const App = () => {
       })
     }
   }
+
   const onBodyChange = (e) => {
     setNote({
       title: {
@@ -135,6 +136,7 @@ export const App = () => {
         isOpen={isOpen}
         onClose={onClose}
         note={note}
+        setNote={setNote}
         onTitleChange={onTitleChange}
         onBodyChange={onBodyChange}
         onAddNote={onAddNote}
